@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangqiang.mapper.EmployeeMapper">
+
+    <resultMap id="EmployeeDTO" type="com.wangqiang.dto.EmployeeDTO">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="gender" jdbcType="INTEGER" property="gender" />
+        <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
+        <result column="date" jdbcType="DATE" property="date" />
+    </resultMap>
+
+
+    <select id="selectAllEmployeeDTO"  resultMap="EmployeeDTO">
+        select e.id,e.employee_name,e.email,e.gender,d.department_name,e.date
+        from employee e,department d
+        where e.department_id = d.id
+    </select>
+
+    <select id="selectEmployeeById" resultType="Employee">
+    select * from employee where id = #{id}
+</select>
+
+    <insert id="addEmployee" parameterType="Employee">
+    insert into employee (id,employee_name,email,gender,department_id,date)
+    values (#{id},#{employeeName},#{email},#{gender},#{departmentId},#{date})
+</insert>
+
+    <update id="updateEmployee" parameterType="Employee">
+    update employee
+    set employee_name=#{employeeName},email=#{email} ,gender=#{gender} ,department_id=#{departmentId} ,date=#{date}
+    where id = #{id}
+</update>
+
+    <delete id="deleteEmployee" parameterType="int">
+    delete from employee where id = #{id}
+</delete>
+</mapper>
