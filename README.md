@@ -1,6 +1,6 @@
 ### 项目介绍
 
-SpringBoot整合CRUD实现员工管理案例，将Mybatis整合到原项目中，加入了数据库，添加了日期选项的控件。
+SpringBoot整合Mybatis实现员工管理CRUD案例，加入了数据库，前端添加了日期选项的控件。
 
 ### 技术工具
 
@@ -15,7 +15,7 @@ SpringBoot整合CRUD实现员工管理案例，将Mybatis整合到原项目中�
 
 ### 如何运行
 
-1、git clone https://github.com/ID-Wangqiang/SpringBoot-Mybatis.git  
+1、git clone git@github.com:ID-Wangqiang/SpringBoot-Mybatis.git  
 2、启动本地MySQL ，新增项目需要的数据库
 
 ```sql
